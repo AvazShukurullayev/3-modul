@@ -1,4 +1,6 @@
 // Todo: Functional component
+import React from "react";
+
 const Navbar = () => {
     const styles = {
         backgroundColor: "lime",
@@ -33,12 +35,33 @@ const Fields = () => <input
     name="name"
 />
 
+class Input extends React.Component {
+    render() {
+        const styleInput = {
+            width: 350
+        }
+        return (
+            <input
+                style={styleInput}
+                type="text"
+                className="form-control"
+                id="inp"
+                name="inp"
+                placeholder="Input something..."
+            />
+        )
+    }
+}
+
 function App() {
     return (
         <>
             <Navbar/>
             <Button/>
             <Fields/>
+            <div>
+                <Input/>
+            </div>
         </>
     )
 }
