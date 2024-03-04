@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Todo: Functional component
+const Navbar = () => {
+    const styles = {
+        backgroundColor: "lime",
+        padding: 15,
+        color: "red"
+    }
+    return <h1 style={styles}>Navbar</h1>
+}
+
+const Button = () => {
+    const isUser = false
+    const getText = () => {
+        if (isUser) {
+            return "Logout1"
+        } else {
+            return "Login1"
+        }
+    }
+    return (
+        <div>
+            <button>{isUser ? "Logout" : "Login"}</button>
+            <button>{getText()}</button>
+        </div>
+    )
+}
+
+const Fields = () => <input
+    className="form-control"
+    type="text"
+    placeholder="Enter your name..."
+    id="name"
+    name="name"
+/>
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <>
+            <Navbar/>
+            <Button/>
+            <Fields/>
+        </>
+    )
 }
 
 export default App
