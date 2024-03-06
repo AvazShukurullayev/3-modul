@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card.jsx";
+import CourseCard from "./CourseCard.jsx";
 
 class App extends React.Component {
     constructor(props) {
@@ -30,10 +31,17 @@ class App extends React.Component {
 
     render() {
         const {data} = this.state
-        return (<div className={"app"}>
+        return (<div className={"app bg-dark"}>
             <div className="container">
                 <div className="row">
                     {data.map(({id, title, desc, src}) => (<Card
+                        title={title}
+                        desc={desc}
+                        src={src}
+                        key={id}
+                    />))}
+
+                    {data.map(({id, title, desc, src}) => (<CourseCard
                         title={title}
                         desc={desc}
                         src={src}
